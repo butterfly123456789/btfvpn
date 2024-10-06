@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>VPN</title>
     <style>
-        @import url('httpsillfontsigoogleanisicom/ess22tanilyiMantseratiMoht0200i509display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;500&display=swap');
 
         * {
             margin: 0;
@@ -67,12 +67,23 @@
         <h1>Vpn Service</h1>
         <img src="https://cdn-icons-png.flaticon.com/512/9915/9915587.png"
              <p>Быстро и легко подключись к впн и реши все свои проблемы.</p>
+        <button id="free">Попробовать бесплатно</button>
         <button id="buy">Купить подписку</button>
     </div>
-    <form id="form">
-
-    </form>
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <script>
+        let tg = window.Telegram.WebApp;
+        let free = document.getElementById("free");
+        let buy = document.getElementById("buy");
+        let order = document.getElementById("order");
+        tg.expand();
+
+        buy.addEventListener("click", () => {
+            document.getElementById("main").style.display = 'none'
+            document.getElementById("form").style.display = 'block'
+            document.getElementById("user_name").value = tg.initDataUnsafe.user.first_name
+        })
+    </script>
 
 </body>
 </html>
